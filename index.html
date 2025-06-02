@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día del Niño Mi Amor ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .heart-container {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .heart {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin: 0 auto;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 26px;
+            height: 40px;
+            position: absolute;
+            left: 25px;
+            top: 0;
+            background: #ff1744;
+            border-radius: 25px 25px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message {
+            font-size: 1.3rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .interactive-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 23, 68, 0.7);
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .surprise-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            color: white;
+            display: none;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .love-counter {
+            font-size: 2rem;
+            color: #ff1744;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .balloons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(10px); }
+        }
+
+        .balloon {
+            width: 40px;
+            height: 50px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            margin: 5px;
+            display: inline-block;
+            animation: float-balloon 4s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(1) { background: #ff6b6b; animation-delay: 0s; }
+        .balloon:nth-child(2) { background: #4ecdc4; animation-delay: 0.5s; }
+        .balloon:nth-child(3) { background: #45b7d1; animation-delay: 1s; }
+
+        @keyframes float-balloon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .gift-box {
+            width: 60px;
+            height: 60px;
+            background: #ff6b6b;
+            margin: 2rem auto;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            animation: rotate 2s linear infinite;
+        }
+
+        .gift-box:before {
+            content: '🎁';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="heartsContainer"></div>
+    
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">¡Feliz Día de la Niña Berrinchuda Mi Amor! 🎈</h1>
+        
+        <div class="heart-container">
+            <div class="heart" onclick="createHeartExplosion()"></div>
+        </div>
+
+        <div class="message-box">
+            <p class="message">
+                Aunque ya no seamos niños, tu sonrisa me devuelve a esos días de pura felicidad e inocencia. 
+                Eres la dulzura de mis días y la magia de mis noches. 
+                En este Día del Niño quiero recordarte que siempre serás mi niña favorita. ❤️
+            </p>
+            
+            <div class="love-counter" id="loveCounter">
+                Amor level: 100%
+            </div>
+        </div>
+
+        <div class="interactive-buttons">
+            <button class="btn" onclick="showSurprise()">¡Sorpresa! 🎉</button>
+            <button class="btn" onclick="changeMessage()">Más Amor 💕</button>
+            <button class="btn" onclick="playGame()">Juguemos 🎮</button>
+        </div>
+
+        <div class="gift-box" onclick="openGift()"></div>
+
+        <div class="surprise-box" id="surpriseBox">
+            <h3>¡Mensaje Especial! ✨</h3>
+            <p id="surpriseMessage">Cargando tu sorpresa...</p>
+        </div>
+    </div>
+
+    <script>
+        let loveLevel = 100;
+        const surpriseMessages = [
+            "Eres mi princesa favorita y mi mejor amiga 👸",
+            "Contigo cada día se siente como una aventura mágica 🌟",
+            "Tu risa es mi sonido favorito en todo el universo 🎵",
+            "Eres más dulce que todos los dulces del mundo 🍭",
+            "Mi corazón hace 'pum pum' cada vez que te veo 💓"
+        ];
+
+        const loveMessages = [
+            "Te amo hasta el infinito y más allá 🚀",
+            "Eres mi persona favorita 🦸‍♀️",
+            "Contigo todos los días son especiales 🎈",
+            "Eres la estrella más brillante de mi cielo ⭐",
+            "Tu amor es mi lugar favorito 🧸"
+        ];
+
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💘', '💝'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }, 500);
+        }
+
+        function createHeartExplosion() {
+            const heartContainer = document.querySelector('.heart-container');
+            const colors = ['#ff1744', '#e91e63', '#9c27b0', '#673ab7'];
+            
+            for (let i = 0; i < 12; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'absolute';
+                heart.style.fontSize = '20px';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                heart.style.transform = 'translate(-50%, -50%)';
+                heart.style.pointerEvents = 'none';
+                
+                const angle = (i * 30) * Math.PI / 180;
+                const distance = 100;
+                
+                heartContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.style.transition = 'all 1s ease-out';
+                    heart.style.transform = `translate(-50%, -50%) translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+                    heart.style.opacity = '0';
+                }, 10);
+                
+                setTimeout(() => heart.remove(), 1000);
+            }
+            
+            loveLevel += 10;
+            document.getElementById('loveCounter').textContent = `Amor level: ${loveLevel}%`;
+        }
+
+        function showSurprise() {
+            const surpriseBox = document.getElementById('surpriseBox');
+            const surpriseMessage = document.getElementById('surpriseMessage');
+            
+            surpriseMessage.textContent = surpriseMessages[Math.floor(Math.random() * surpriseMessages.length)];
+            surpriseBox.style.display = 'block';
+            
+            setTimeout(() => {
+                surpriseBox.style.display = 'none';
+            }, 4000);
+        }
+
+        function changeMessage() {
+            const messageElement = document.querySelector('.message');
+            const newMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            
+            messageElement.style.animation = 'slideIn 0.5s ease-out';
+            messageElement.textContent = newMessage;
+            
+            loveLevel += 5;
+            document.getElementById('loveCounter').textContent = `Amor level: ${loveLevel}%`;
+        }
+
+        function playGame() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#e17055'];
+            let currentColor = 0;
+            
+            const interval = setInterval(() => {
+                document.body.style.background = `linear-gradient(45deg, ${colors[currentColor]}, ${colors[(currentColor + 1) % colors.length]}, ${colors[(currentColor + 2) % colors.length]})`;
+                currentColor = (currentColor + 1) % colors.length;
+            }, 200);
+            
+            setTimeout(() => {
+                clearInterval(interval);
+                document.body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b)';
+                document.body.style.backgroundSize = '400% 400%';
+                document.body.style.animation = 'gradientShift 8s ease infinite';
+            }, 3000);
+            
+            alert('¡Eres unica! ✨');
+        }
+
+        function openGift() {
+            const gifts = [
+                "🌹 Una rosa virtual para ti",
+                "🍫 Chocolates infinitos de amor",
+                "🎵 Una canción de amor eterna",
+                "🌙 La luna del amo",
+                "😻 Un gatito mágico de la felicidad"
+            ];
+            
+            const gift = gifts[Math.floor(Math.random() * gifts.length)];
+            alert(`¡Tu regalo es: ${gift}!`);
+            
+            // Crear confetti
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = '🎊';
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-50px';
+                    confetti.style.fontSize = '20px';
+                    confetti.style.zIndex = '1000';
+                    confetti.style.animation = 'float 3s linear forwards';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // Inicializar efectos
+        window.addEventListener('load', () => {
+            createFloatingHearts();
+        });
+
+        // Efecto de click en cualquier parte
+        document.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('btn') && !e.target.classList.contains('heart') && !e.target.classList.contains('gift-box')) {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.fontSize = '20px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'float 2s ease-out forwards';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 2000);
+            }
+        });
+    </script>
+</body>
+</html>
